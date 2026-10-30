@@ -32,6 +32,16 @@
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
     };
+
+    lt_nav: layer_tap_nav {
+        compatible = "zmk,behavior-hold-tap";
+        label = "LAYER_TAP_NAV";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+        quick-tap-ms = <150>;
+        flavor = "balanced";
+        bindings = <&mo>, <&kp>;
+    };
   };
 
     keymap {
@@ -44,7 +54,7 @@
    &kp TAB   &kp Q   &kp W     &kp E      &kp R   &kp T               &kp GRAVE                                                                             &kp EQUAL   &kp Y   &kp U      &kp I          &kp O     &kp P   &kp BSLH
    &kp SQT   &kp A   &kp S     &kp D      &kp F   &kp G            &kp LEFT_ALT  &kp LCTRL  &kp LEFT_COMMAND                  &kp RIGHT_COMMAND  &kp RCTRL  &kp MINUS   &kp H   &kp J      &kp K          &kp L  &kp SEMI   &kp CAPS
  &kp LSHFT   &kp Z   &kp X     &kp C      &kp V   &kp B                                             &kp HOME                           &kp LBKT                         &kp N   &kp M  &kp COMMA        &kp DOT  &kp FSLH  &kp RSHFT
-     &mo 2 &kp F14 &kp F15   &kp F17    &kp F18                        &kp BSPC    &kp ESC           &kp END                           &kp RBKT  &kp ENTER  &kp SPACE         &kp F19    &kp F20  &kp RIGHT_ALT   &kp F16      &mo 2
+     &mo 2 &kp F14 &kp F15   &kp F17 &lt_nav 4 F18                     &kp BSPC    &kp ESC           &kp END                           &kp RBKT  &kp ENTER  &kp SPACE         &kp F19    &kp F20  &kp RIGHT_ALT   &kp F16      &mo 2
             >;
         };
 
@@ -75,6 +85,16 @@
   &none         &none         &none         &none         &none         &none                  &none   &none   &none                  &bt BT_CLR       &none  &rgb_ug RGB_MEFS_CMD 5   &none       &none       &none   &none   &none   &none
   &none         &none         &none         &none    &macro_ver         &none                                  &none                       &none                                       &none       &none       &none   &none   &none   &none
   &none         &none         &none         &none         &none                                &none   &none   &none                       &none  &bl BL_TOG         &rgb_ug RGB_TOG          &bl BL_INC  &bl BL_DEC   &none   &none   &none
+            >;
+        };
+
+        layer_nav {
+            bindings = <
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans   &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans   &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans                            &trans                  &trans                  &trans  &trans  &trans   &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans   &trans   &trans   &trans
             >;
         };
 
